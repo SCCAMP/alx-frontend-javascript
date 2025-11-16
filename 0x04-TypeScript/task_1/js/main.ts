@@ -49,13 +49,14 @@ console.log(director1);
 
 // Interface for the function
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
-// Function implementation
-function printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+function printTeacher(
+  { firstName, lastName }: { firstName: string; lastName: string }
+): string {
+  return `${firstName}. ${lastName}`;
+}
 
 // Example for Task 3
 console.log('--- Task 3 Example ---');
