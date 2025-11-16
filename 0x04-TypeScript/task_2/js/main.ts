@@ -54,6 +54,18 @@ export function executeWork(employee: Director | Teacher): string {
 }
 
 
+// Task 7: ---
+type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass:Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  }
+  return 'Teaching History';
+}
+
+
+
 // Example for Task 7
 console.log('--- Task 7 Examples ---');
 console.log(teachClass('Math'));   // Teaching Math
