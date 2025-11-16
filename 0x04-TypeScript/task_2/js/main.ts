@@ -42,41 +42,17 @@ console.log(createEmployee('$500')); // Director
 
 // --- Task 6: Creating functions specific to employees ---
 
-// Type predicate function
-function isDirector(employee: Director | Teacher): employee is Director {
-  // Check if the 'workDirectorTasks' method exists on the employee
+export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-function executeWork(employee: Director | Teacher): void {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
-    console.log(employee.workDirectorTasks());
-  } else {
-    console.log(employee.workTeacherTasks());
+    return employee.workDirectorTasks();
   }
+  return employee.workTeacherTasks();
 }
 
-// Example for Task 6
-console.log('--- Task 6 Examples ---');
-executeWork(createEmployee(200));   // Getting to work
-executeWork(createEmployee(1000)); // Getting to director tasks
-
-
-// --- Task 7: String literal types ---
-
-type Subjects = 'Math' | 'History';
-
-function teachClass(todayClass: Subjects): string {
-  if (todayClass === 'Math') {
-    return 'Teaching Math';
-  }
-  if (todayClass === 'History') {
-    return 'Teaching History';
-  }
-  // This line is technically unreachable due to the Subject type
-  // but it's good practice for exhaustive checks.
-  return `Teaching ${todayClass}`;
-}
 
 // Example for Task 7
 console.log('--- Task 7 Examples ---');
