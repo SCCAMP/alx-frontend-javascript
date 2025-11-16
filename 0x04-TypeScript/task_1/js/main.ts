@@ -25,6 +25,10 @@ console.log(teacher3);
 
 // --- Task 2: Extending the Teacher class ---
 
+interface Director extends Teacher {
+  numberOfReports: number;
+}
+
 interface Directors extends Teacher {
   numberOfReports: number;
 }
